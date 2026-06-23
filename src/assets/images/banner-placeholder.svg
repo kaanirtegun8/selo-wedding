@@ -1,0 +1,73 @@
+<svg width="1000" height="760" viewBox="0 0 1000 760" fill="none"
+     xmlns="http://www.w3.org/2000/svg" role="img"
+     aria-label="Düğün banner görseli yer tutucu">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="760" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ecd3c6"/>
+      <stop offset="0.42" stop-color="#dcb88f"/>
+      <stop offset="0.78" stop-color="#bd9760"/>
+      <stop offset="1" stop-color="#9c7842"/>
+    </linearGradient>
+
+    <radialGradient id="bokeh" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#fff7e6" stop-opacity="0.9"/>
+      <stop offset="0.6" stop-color="#ffeccb" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#ffeccb" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="vignette" cx="50%" cy="38%" r="75%">
+      <stop offset="0.55" stop-color="#000000" stop-opacity="0"/>
+      <stop offset="1" stop-color="#3a271a" stop-opacity="0.45"/>
+    </radialGradient>
+
+    <linearGradient id="scrim" x1="0" y1="380" x2="0" y2="760" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2a1c10" stop-opacity="0"/>
+      <stop offset="1" stop-color="#2a1c10" stop-opacity="0.42"/>
+    </linearGradient>
+
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.05"/></feComponentTransfer>
+      <feComposite operator="over" in2="SourceGraphic"/>
+    </filter>
+  </defs>
+
+  <!-- Zemin -->
+  <rect width="1000" height="760" fill="url(#bg)"/>
+
+  <!-- Yumuşak bokeh ışıklar -->
+  <circle cx="170" cy="150" r="120" fill="url(#bokeh)"/>
+  <circle cx="840" cy="120" r="95" fill="url(#bokeh)"/>
+  <circle cx="690" cy="300" r="55" fill="url(#bokeh)"/>
+  <circle cx="300" cy="360" r="40" fill="url(#bokeh)"/>
+  <circle cx="910" cy="430" r="70" fill="url(#bokeh)"/>
+  <circle cx="90" cy="470" r="50" fill="url(#bokeh)"/>
+
+  <!-- Doku + gölgeler -->
+  <rect width="1000" height="760" fill="url(#vignette)"/>
+  <rect width="1000" height="760" fill="url(#scrim)"/>
+  <rect width="1000" height="760" filter="url(#grain)" opacity="0.6"/>
+
+  <!-- İnce altın çerçeve (davetiye hissi) -->
+  <rect x="26" y="26" width="948" height="708" rx="14"
+        fill="none" stroke="#fdeccc" stroke-opacity="0.55" stroke-width="1.5"/>
+
+  <!-- Zarif tepe süslemesi: defne dalları + kalp -->
+  <g stroke="#fdeccc" stroke-opacity="0.85" stroke-width="2.4" fill="none"
+     stroke-linecap="round" transform="translate(500 250)">
+    <!-- kalp -->
+    <path d="M0 26 C -14 6 -34 8 -34 -8 C -34 -22 -18 -24 0 -8 C 18 -24 34 -22 34 -8 C 34 8 14 6 0 26 Z"
+          fill="#fdeccc" fill-opacity="0.12"/>
+    <!-- sol dal -->
+    <path d="M-58 8 q -42 -6 -78 -34"/>
+    <path d="M-92 -2 q -8 -12 -22 -16"/>
+    <path d="M-108 8 q -9 -11 -24 -13"/>
+    <path d="M-122 18 q -9 -10 -25 -10"/>
+    <!-- sağ dal -->
+    <path d="M58 8 q 42 -6 78 -34"/>
+    <path d="M92 -2 q 8 -12 22 -16"/>
+    <path d="M108 8 q 9 -11 24 -13"/>
+    <path d="M122 18 q 9 -10 25 -10"/>
+  </g>
+</svg>

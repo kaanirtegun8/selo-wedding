@@ -1,0 +1,36 @@
+rules_version = '2';
+
+// Misafirler YAZABİLİR (mesaj/foto-metadata oluşturma).
+// OKUMA herkese açık — admin paneli (basit şifre kapısı) verileri okuyabilsin diye.
+// (Not: bu, verilerin teknik olarak herkese okunabilir olduğu anlamına gelir;
+//  düğün ölçeğinde kabul edildi. Güncelleme/silme yine kapalı.)
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Misafir mesajları
+    match /messages/{id} {
+      allow read: if true;
+      allow update, delete: if false;
+      allow create: if
+        request.resource.data.keys().hasOnly(['name', 'text', 'createdAt'])
+        && request.resource.data.text is string
+        && request.resource.data.text.size() > 0
+        && request.resource.data.text.size() <= 1000
+        && request.resource.data.name is string
+        && request.resource.data.name.size() <= 80
+        && request.resource.data.createdAt == request.time;
+    }
+
+    // Yüklenen foto/video metadata'sı
+    match /photos/{id} {
+      allow read: if true;
+      allow update, delete: if false;
+      allow create: if
+        request.resource.data.keys().hasOnly(['path', 'name', 'size', 'type', 'createdAt'])
+        && request.resource.data.path is string
+        && request.resource.data.path.matches('uploads/.*')
+        && request.resource.data.size is number
+        && request.resource.data.createdAt == request.time;
+    }
+  }
+}

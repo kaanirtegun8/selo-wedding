@@ -1,0 +1,56 @@
+/* =========================================================
+   TEMA — Zarif & Romantik
+   Tüm renk / font / ölçü değişkenleri burada. Tek yerden değiştir.
+   ========================================================= */
+:root {
+  /* --- Renkler --- */
+  --c-bg: #fbf7f0;          /* krem zemin */
+  --c-bg-2: #f3e9d8;        /* zeminde yumuşak gradyan için daha derin krem */
+  --c-surface: #ffffff;     /* kart yüzeyi */
+  --c-surface-2: #fdfaf4;   /* hafif kremli yüzey (drop-zone vb.) */
+
+  --c-ink: #3a332b;         /* ana metin — sıcak koyu kahve */
+  --c-ink-soft: #6b6258;    /* ikincil metin */
+  --c-muted: #9a9085;       /* soluk metin / ipucu */
+
+  --c-gold: #c9a86a;        /* altın aksan */
+  --c-gold-deep: #ac8743;   /* metin/ikonda okunur altın */
+  --c-gold-soft: rgba(201, 168, 106, 0.16);
+  --c-gold-line: rgba(201, 168, 106, 0.45);
+
+  --c-blush: #c98b86;       /* zarif gül/blush vurgu (kalp vb.) */
+  --c-blush-soft: rgba(201, 139, 134, 0.14);
+
+  --c-line: #ece2d2;        /* ince ayraç çizgileri */
+  --c-success: #5f8d6a;     /* başarı yeşili */
+  --c-danger: #c0635c;      /* uyarı/hata */
+
+  /* --- Tipografi --- */
+  --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-body: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Helvetica, Arial, sans-serif;
+
+  /* --- Köşe yarıçapları --- */
+  --radius-sm: 12px;
+  --radius: 18px;
+  --radius-lg: 26px;
+  --radius-pill: 999px;
+
+  /* --- Gölgeler --- */
+  --shadow-soft: 0 10px 30px -14px rgba(58, 51, 43, 0.22);
+  --shadow-lift: 0 22px 55px -20px rgba(58, 51, 43, 0.32);
+  --shadow-inset: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+
+  /* --- Boşluk ölçeği --- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+
+  /* --- Düzen --- */
+  --maxw: 440px;            /* mobil kart genişliği */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}

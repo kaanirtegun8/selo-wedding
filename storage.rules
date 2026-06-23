@@ -1,0 +1,18 @@
+rules_version = '2';
+
+// Misafirler görsel VEYA video yükleyebilir (en fazla 50MB).
+// OKUMA herkese açık — admin paneli (basit şifre kapısı) medyayı gösterebilsin diye.
+// Silme/değiştirme engellidir (request.resource yalnızca yüklemede dolu olur).
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /uploads/{allPaths=**} {
+      allow read: if true;
+      allow write: if request.resource != null
+        && request.resource.size < 50 * 1024 * 1024
+        && (
+          request.resource.contentType.matches('image/.*')
+          || request.resource.contentType.matches('video/.*')
+        );
+    }
+  }
+}
