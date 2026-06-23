@@ -47,10 +47,11 @@ import { wedding } from '@/config/wedding'
   inset: 0;
   background: linear-gradient(
     to top,
-    rgba(40, 26, 14, 0.78) 0%,
-    rgba(40, 26, 14, 0.45) 22%,
-    rgba(40, 26, 14, 0.12) 45%,
-    rgba(40, 26, 14, 0) 68%
+    rgba(33, 21, 11, 0.92) 0%,
+    rgba(33, 21, 11, 0.8) 24%,
+    rgba(33, 21, 11, 0.5) 44%,
+    rgba(33, 21, 11, 0.16) 62%,
+    rgba(33, 21, 11, 0) 78%
   );
 }
 
@@ -74,11 +75,13 @@ import { wedding } from '@/config/wedding'
 }
 
 .banner__names {
+  color: bisque;
   font-size: clamp(2rem, 9vw, 2.6rem);
   font-weight: 600;
   letter-spacing: 0.01em;
-  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.4);
-  opacity: 0;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.85), 0 0 10px rgba(0, 0, 0, 0.7),
+    0 0 26px rgba(0, 0, 0, 0.55);
+  opacity: 1;
   animation: rise 0.7s var(--ease) 0.28s forwards;
 }
 
