@@ -144,6 +144,8 @@ function formatDate(ms) {
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
+  flex: 1;
+  min-height: 0;
 }
 
 .stage {
@@ -151,22 +153,29 @@ function formatDate(ms) {
   overflow: hidden;
   touch-action: pan-y;
   user-select: none;
+  flex: 1;
+  min-height: 0;
 }
 .track {
   display: flex;
+  height: 100%;
 }
 .cardwrap {
   flex: 0 0 100%;
-  padding: var(--space-2) var(--space-2) var(--space-4);
+  min-width: 0;
+  height: 100%;
+  display: flex;
+  padding: var(--space-2) var(--space-2) var(--space-2);
 }
 
 /* Tatlı mesaj kartı */
 .note {
   position: relative;
+  flex: 1;
+  min-height: 0;
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
-  min-height: 230px;
   padding: var(--space-6) var(--space-5) var(--space-5);
   background: linear-gradient(160deg, #fffdf8, var(--c-surface-2));
   border: 1px solid var(--c-gold-line);
@@ -192,13 +201,26 @@ function formatDate(ms) {
 }
 .note__text {
   flex: 1;
-  display: grid;
-  place-items: center;
+  min-height: 0;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: safe center;
   text-align: center;
   font-size: 1.18rem;
   line-height: 1.6;
   color: var(--c-ink);
   font-style: italic;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  -webkit-overflow-scrolling: touch;
+}
+.note__text::-webkit-scrollbar {
+  width: 5px;
+}
+.note__text::-webkit-scrollbar-thumb {
+  background: var(--c-gold-line);
+  border-radius: 4px;
 }
 .note__foot {
   display: flex;
@@ -264,6 +286,7 @@ function formatDate(ms) {
 
 /* Kontroller */
 .controls {
+  flex: none;
   display: flex;
   align-items: center;
   justify-content: center;

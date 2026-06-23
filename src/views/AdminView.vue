@@ -115,12 +115,12 @@ onMounted(() => {
         <div class="panel__body">
           <Transition name="panel-fade" mode="out-in">
             <!-- ANILAR -->
-            <div v-if="activeTab === 'media'" key="media">
+            <div v-if="activeTab === 'media'" key="media" class="tabpane">
               <PhotoCarousel v-if="media.length" :items="media" />
               <p v-else class="empty">Henüz fotoğraf/video yüklenmemiş.</p>
             </div>
             <!-- MESAJLAR -->
-            <div v-else key="messages">
+            <div v-else key="messages" class="tabpane">
               <MessageCarousel v-if="messages.length" :items="messages" />
               <p v-else class="empty">Henüz mesaj bırakılmamış.</p>
             </div>
@@ -137,9 +137,10 @@ onMounted(() => {
 .admin {
   display: flex;
   justify-content: center;
-  padding: clamp(var(--space-3), 4vw, var(--space-6))
-    clamp(var(--space-3), 4vw, var(--space-5))
-    calc(env(safe-area-inset-bottom) + var(--space-6));
+  align-items: flex-start;
+  min-height: 100dvh;
+  padding: clamp(var(--space-2), 3vw, var(--space-5));
+  padding-bottom: calc(env(safe-area-inset-bottom) + var(--space-3));
 }
 
 /* ŞİFRE KAPISI */
@@ -216,18 +217,25 @@ onMounted(() => {
 
 /* PANEL */
 .panel {
+  display: flex;
+  flex-direction: column;
   width: 100%;
   max-width: 480px;
+  max-height: calc(100dvh - 2 * clamp(var(--space-2), 3vw, var(--space-5)));
   background: var(--c-surface);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-lift);
   overflow: hidden;
 }
 .panel__head {
+  flex: none;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: var(--space-5) var(--space-5) var(--space-4);
+}
+.panel :deep(.tabs) {
+  flex: none;
 }
 .panel__kicker {
   font-size: 0.7rem;
@@ -252,18 +260,32 @@ onMounted(() => {
 }
 
 .panel__body {
-  padding: var(--space-4) var(--space-5) 0;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  overflow: hidden;
+  padding: var(--space-4) var(--space-5);
+}
+.tabpane {
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
 }
 .empty {
+  margin: auto;
   text-align: center;
   color: var(--c-muted);
   padding: var(--space-7) var(--space-4);
 }
 
 .state {
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: var(--space-4);
   padding: var(--space-7) var(--space-5);
   text-align: center;
@@ -287,6 +309,7 @@ onMounted(() => {
 }
 
 .refresh {
+  flex: none;
   display: block;
   width: 100%;
   padding: var(--space-4);
@@ -295,7 +318,6 @@ onMounted(() => {
   color: var(--c-gold-deep);
   border-top: 1px solid var(--c-line);
   background: var(--c-surface-2);
-  margin-top: var(--space-4);
 }
 
 .panel-fade-enter-active,

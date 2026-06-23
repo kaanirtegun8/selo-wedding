@@ -202,13 +202,15 @@ async function downloadAll() {
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
+  flex: 1;
+  min-height: 0;
 }
 
 .stage {
   position: relative;
   width: 100%;
-  aspect-ratio: 1 / 1;
-  max-height: 56vh;
+  flex: 1;
+  min-height: 140px;
   overflow: hidden;
   border-radius: var(--radius);
   background: #211710;
@@ -277,6 +279,7 @@ async function downloadAll() {
 
 /* Şerit */
 .strip {
+  flex: none;
   display: flex;
   gap: var(--space-2);
   overflow-x: auto;
@@ -315,6 +318,7 @@ async function downloadAll() {
 }
 
 .actions {
+  flex: none;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--space-3);
